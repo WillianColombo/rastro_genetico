@@ -30,7 +30,7 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
   }
 
   void updateAnimal(int idAnimal) async {
-    final database = await $FloorAppDatabase.databaseBuilder('baitafome.db').build();
+    final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final animalDao = database.animalDao;
 
     Animal? animal = await animalDao.findAnimalById(idAnimal);
@@ -45,14 +45,14 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
 
   // CARREGA TIPOS DO BANCO DE DADOS
   Future<void> loadAllowedRacas() async {
-    final database = await $FloorAppDatabase.databaseBuilder('baitafome.db').build();
+    final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final racaDao = database.racaDao;
     allowedRacas = await racaDao.findAllRaca();
     setState(() {});
   }
 
   Future<void> loadAnimalDetails(int animalId) async {
-    final database = await $FloorAppDatabase.databaseBuilder('baitafome.db').build();
+    final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final animalDao = database.animalDao;    
 
     animal = await animalDao.findAnimalById(widget.animalId);

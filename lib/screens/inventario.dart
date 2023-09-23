@@ -37,7 +37,7 @@ class _AnimalPageState extends State<AnimalPage> {
   }
 
   void deleteAnimal(int idAnimal) async {
-    final database = await $FloorAppDatabase.databaseBuilder('baitafome.db').build();
+    final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final animalDao = database.animalDao;
 
     Animal? animal = await animalDao.findAnimalById(idAnimal);
@@ -48,20 +48,20 @@ class _AnimalPageState extends State<AnimalPage> {
 
   // CARREGA AS RECEITAS DO BANCO DE DADOS
   Future<void> loadAllowedAnimals(int animalId) async {
-    final database = await $FloorAppDatabase.databaseBuilder('baitafome.db').build();
+    final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final animalDao = database.animalDao;
 
-    final animals;
+    final animal;
     if (animalId == 0){
-      animals = await animalDao.findAllAnimal();
+      animal = await animalDao.findAllAnimal();
     }
     else{
-      animals = await animalDao.findAnimalByRaca(animalId);
+      animal = await animalDao.findAnimalByRaca(animalId);
     }
 
     animalList = []; 
     setState((){
-      animalList = animals;      
+      animalList = animal;      
     });
   }  
 

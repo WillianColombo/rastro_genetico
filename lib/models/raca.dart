@@ -6,8 +6,10 @@ class Raca {
   int? id;
   String? nome;
 
+
   Raca({
     required this.id,
-    required this.nome
+    required this.nome,
   });
+
 }
