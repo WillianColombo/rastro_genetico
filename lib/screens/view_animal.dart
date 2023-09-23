@@ -65,10 +65,17 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
     setState(() {});
   }
 
+  
+
+  String labelRaca = "Raça do animal";
+  String labelDataNascimento = "Data de nascimento";
+  String labelNome = "Nome do animal";
+  String labelId = "ID";
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text("Informação do animal"),
+      title: const Text("Informação do animal"),
       content: Container(
         width: 540,
         height: 600,
@@ -84,9 +91,9 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
                     maxLines: 1,
                     enabled: false,
                     decoration: InputDecoration(
-                      labelText: widget.animalId.toString(),
+                      labelText: labelId,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      counter: SizedBox.shrink(),
+                      counter: const SizedBox.shrink(),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(6),
                       ),
@@ -94,7 +101,7 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
                   ),
                 ),
 
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
 
                 Flexible(
                   flex: 4,
@@ -103,9 +110,9 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
                     maxLength: 30,
                     maxLines: 1,
                     decoration: InputDecoration(
-                      labelText: nomeController.toString(),
+                      labelText: labelNome,
                       floatingLabelBehavior: FloatingLabelBehavior.always,
-                      counter: SizedBox.shrink(),
+                      counter: const SizedBox.shrink(),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(6),
                       ),
@@ -115,15 +122,15 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
               ],
             ),
             
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             TextField(
               controller: dataNascimento,
               maxLines: 2,
               maxLength: 100,
               decoration: InputDecoration(
-                labelText: animal?.dataNascimento,
+                labelText: labelDataNascimento,
                 floatingLabelBehavior: FloatingLabelBehavior.always,
-                counter: SizedBox.shrink(),
+                counter: const SizedBox.shrink(),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                 ),
@@ -133,7 +140,7 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
               ],
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             SizedBox(
               width: double.infinity,
@@ -141,7 +148,7 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
                 isExpanded: true,
                 icon: const Icon(Icons.receipt),
                 decoration: InputDecoration(
-                  labelText: Text("Raça do animal").toString(),
+                  labelText: labelRaca,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(6),
                   ),
@@ -162,14 +169,14 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
               ),
             ),
 
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
           ],
         ),
       ),
 
       actions: [
         TextButton(
-          child: Text(
+          child: const Text(
             "Deletar",
             style: TextStyle(
               color: Colors.red,
@@ -182,10 +189,10 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
           },
         ),        
 
-        SizedBox(width: 330,),
+        const SizedBox(width: 330,),
 
         TextButton(
-          child: Text(
+          child: const Text(
             "Salvar",
             style: TextStyle(
               color: Colors.green,
@@ -199,7 +206,7 @@ class _ViewAnimalDialogState extends State<ViewAnimalDialog> {
         ),        
 
         TextButton(
-          child: Text(
+          child: const Text(
             "Sair",
             style: TextStyle(
               color: Colors.orange,

@@ -35,5 +35,4 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
-    - assets/images/bovino.png
-    - assets/images/arvore.png
+    - assets/images/

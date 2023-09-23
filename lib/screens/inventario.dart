@@ -46,7 +46,6 @@ class _AnimalPageState extends State<AnimalPage> {
     await loadAllowedAnimals(widget.racaId);
   }
 
-  // CARREGA AS RECEITAS DO BANCO DE DADOS
   Future<void> loadAllowedAnimals(int animalId) async {
     final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final animalDao = database.animalDao;
@@ -70,17 +69,17 @@ class _AnimalPageState extends State<AnimalPage> {
     return Scaffold(
       
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(223, 138, 84, 1),                        
+        backgroundColor: const Color.fromRGBO(31, 158, 73, 1),                        
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: (){
             Navigator.pop(
               context,               
             );
           },
-          color: Color.fromRGBO(83, 85, 82, 1),
+          color: const Color.fromRGBO(83, 85, 82, 1),
         ),
-        title: Text("Animais",
+        title: const Text("Animais",
           style: TextStyle(
             color: Color.fromRGBO(83, 85, 82, 1),
           ),
@@ -89,12 +88,12 @@ class _AnimalPageState extends State<AnimalPage> {
       ),
 
       body: ListView.builder(
-        padding:  EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         itemCount: animalList.length,
         itemBuilder: (BuildContext context, int index){
           Animal animal = animalList[index];
           return Container(
-            padding: EdgeInsets.symmetric(horizontal: 180.0),
+            padding: const EdgeInsets.symmetric(horizontal: 180.0),
             child: Center(
               child: GestureDetector(
                 onTap: () {
@@ -108,7 +107,7 @@ class _AnimalPageState extends State<AnimalPage> {
                   child: SizedBox(
                     height: 100.0,
                     child: ListTile(
-                      leading: IconTheme(
+                      leading: const IconTheme(
                         data: IconThemeData(
                           size: 60.0,
                         ),
@@ -116,14 +115,14 @@ class _AnimalPageState extends State<AnimalPage> {
                       ),
                       title: Text(
                         animal.nome ?? '',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 22.0,
                           color: Colors.black,
                         ),
                       ),
                       subtitle: Text(
                         animal.dataNascimento ?? '',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 16.0,
                         ),
                       ),
@@ -136,7 +135,7 @@ class _AnimalPageState extends State<AnimalPage> {
         },
       ),
 
-      backgroundColor: Color.fromRGBO(235, 230, 210, 1),      
+      backgroundColor: const Color.fromRGBO(235, 230, 210, 1),      
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rastro_genetico2/screens/add_animal.dart';
 import 'package:rastro_genetico2/screens/inventario.dart';
 
 class Opcoes extends StatelessWidget {
@@ -12,108 +13,102 @@ class Opcoes extends StatelessWidget {
         crossAxisCount: 6,
         childAspectRatio: 1.13,
         children: [
-          Card(
+          const Card(
             elevation: 0,
-            color: Color.fromRGBO(121, 204, 104, 1),
+            color: Color.fromRGBO(235, 230, 210, 1),
           ),
           GestureDetector(
             onTap: null,
-            child: Card(
+            child: const Card(
               elevation: 0,
-              color: Color.fromRGBO(121, 204, 104, 1),
+              color: Color.fromRGBO(235, 230, 210, 1),
             ),
           ),
           GestureDetector(
             onTap: null,
-            child: Card(
+            child: const Card(
               elevation: 0,
-              color: Color.fromRGBO(121, 204, 104, 1),
+              color: Color.fromRGBO(235, 230, 210, 1),
             ),
           ),
           GestureDetector(
             onTap: null,
-            child: Card(
+            child: const Card(
               elevation: 0,
-              color: Color.fromRGBO(121, 204, 104, 1),
+              color: Color.fromRGBO(235, 230, 210, 1),
             ),
           ),
           GestureDetector(
             onTap: null,
-            child: Card(
+            child: const Card(
               elevation: 0,
-              color: Color.fromRGBO(121, 204, 104, 1),
+              color: Color.fromRGBO(235, 230, 210, 1),
             ),
           ),
-          Card(
+          const Card(
             elevation: 0,
-            color: Color.fromRGBO(121, 204, 104, 1),
+            color: Color.fromRGBO(235, 230, 210, 1),
           ),
-          Card(
+          const Card(
             elevation: 0,
-            color: Color.fromRGBO(121, 204, 104, 1),
+            color: Color.fromRGBO(235, 230, 210, 1),
           ),
           GestureDetector(
             onTap: null,
-            child: Card(
+            child: const Card(
               elevation: 0,
-              color: Color.fromRGBO(121, 204, 104, 1),
+              color: Color.fromRGBO(235, 230, 210, 1),
             ),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AnimalPage(racaId: 6),
-                ),
-              );
+              addAnimal(context);
             },
             child: Card(
                 elevation: 0,
-                color: Color.fromRGBO(121, 204, 104, 1),
+                color: const Color.fromRGBO(31, 158, 73, 1),
                 child: Column(
                   children: [
                     Expanded(child: Image.asset('assets/images/bovino.png')),
-                    Text(
-                      'Cadastro de Bovinos',
+                    const Text(
+                      'Cadastro dos animais',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize:
                             20.0, // Defina o tamanho de fonte desejado aqui
+                        color: Color.fromRGBO(255, 255, 255, 1),
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 )),
           ),
           GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AnimalPage(racaId: 7),
-                ),
-              );
+              Navigator.push(context,MaterialPageRoute(builder: (context) => const AnimalPage(racaId: 0),));
             },
             child: Card(
                 elevation: 0,
-                color: Color.fromRGBO(121, 204, 104, 1),
+                color: const Color.fromRGBO(31, 158, 73, 1),
                 child: Column(
                   children: [
-                    Expanded(child: Image.asset('assets/images/arvore.png')),
-                    Text(
-                      'Árvore Genealógica',
+                    Expanded(child: Image.asset('assets/images/lista.png')),
+                    const Text(
+                      'Inventário dos animais',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize:
                             20.0, // Defina o tamanho de fonte desejado aqui
+                        color: Color.fromARGB(255, 255, 255, 255)
                       ),
+                      textAlign: TextAlign.center,
                     ),
                   ],
                 )),
           ),
-          Card(
+          const Card(
             elevation: 0,
-            color: Color.fromRGBO(121, 204, 104, 1),
+            color: Color.fromRGBO(235, 230, 210, 1),
           ),
         ],
       ),

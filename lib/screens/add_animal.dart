@@ -31,7 +31,6 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
     loadAllowedRacas();
   }
 
-  // CARREGA TYPE DO BANCO DE DADOS
   Future<void> loadAllowedRacas() async {
     final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final racaDao = database.racaDao;
@@ -39,7 +38,6 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
     setState(() {});
   }
 
-  //GRAVAR A RECEITA NO BANCO DE DADOS
   void saveAnimal() async{
     final database = await $FloorAppDatabase.databaseBuilder('rastrogenetico.db').build();
     final AnimalDao = database.animalDao;
@@ -48,13 +46,12 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
     await AnimalDao.insertAnimal(animal);
   }
 
-  // VALIDAR SE A RECEITA TEM AS INFORMAÇÕES NECESSÁRIAS
   void validateAnimal(){
     if (selectedRaca != null && dataNascimentoController.text.isNotEmpty && nomeController.text.isNotEmpty) { 
       saveAnimal();
 
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Animal adicionado!"),
           backgroundColor: Colors.green,
         ),
@@ -62,7 +59,7 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
     }
     else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Algo deu errado, não fopi possível adicionar o animal!"),
           backgroundColor: Colors.red,
         ),
@@ -70,15 +67,18 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
     }
   } 
 
+  final String _labelNome = "Nome do animal";
+  final String _labelDataNascimento = "Data de nascimento";
+
   @override
   Widget build(BuildContext context) {
     if (allowedRacas == null) {
-      return CircularProgressIndicator();
+      return const CircularProgressIndicator();
     }
 
     return AlertDialog(
-      title: Text("Insira as informações do animal:"),
-      content:  Container(
+      title: const Text("Insira as informações do animal:"),
+      content: Container(
         width: 540, 
         height: 600, 
         child: Column(
@@ -89,23 +89,25 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
             maxLength: 30,          
             maxLines: 1,
             decoration: InputDecoration(
+              labelText:_labelNome,
               floatingLabelBehavior: FloatingLabelBehavior.always, 
-              counter: SizedBox.shrink(),
+              counter: const SizedBox.shrink(),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
               ),
             ),
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
 
           TextField(
             controller: dataNascimentoController,
             maxLines: 2,
             maxLength: 100,           
-            decoration: InputDecoration(            
+            decoration: InputDecoration(
+              labelText: _labelDataNascimento,            
               floatingLabelBehavior: FloatingLabelBehavior.always, // Mantém o rótulo fixo na parte superior
-              counter: SizedBox.shrink(),
+              counter: const SizedBox.shrink(),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(6),
               ),              
@@ -115,16 +117,16 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
             ],
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
       
           SizedBox(
             width: double.infinity,            
             child: DropdownButtonFormField<Raca>(
               isExpanded: true, 
               icon: const Icon(Icons.receipt),
-              hint: Text("Escolha a raça do animal:"),
+              hint: const Text("Escolha a raça do animal:"),
               decoration: InputDecoration(
-                label: Text("Raça do animal"),
+                label: const Text("Raça do animal"),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(6),
                 )
@@ -144,13 +146,13 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
             )
           ),
 
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
         ],
       ),
       ),
       actions: [        
         TextButton(
-          child: Text("Salvar",
+          child: const Text("Salvar",
             style: TextStyle(
               color: Colors.green,
               fontSize: 21,
@@ -164,7 +166,7 @@ class _AddAnimalDialogState extends State<AddAnimalDialog> {
         ),        
 
         TextButton(
-          child: Text("Sair",
+          child: const Text("Sair",
             style: TextStyle(
               color: Colors.orange,
               fontSize: 21,
